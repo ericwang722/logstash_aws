@@ -1,7 +1,7 @@
 #/bin/bash
 #copy/update configuration files to /usr/local/elk/conf
 aws s3 cp s3://$S3_BUNDLE_NAME/elk/patterns/github /opt/logstash/patterns/github
-aws s3 cp s3://$S3_BUNDLE_NAME/elk/logstash-forwarder.crt /usr/local/elk/conf/logstash-forwarder.crt
+aws s3 cp s3://$(S3_BUNDLE_NAME)/elk/logstash.conf /usr/local/elk/conf/logstash.conf
 #aws s3 cp s3://$S3_BUNDLE_NAME/elk/logstash-forwarder.crt /usr/local/elk/conf/logstash-forwarder.crt
 #aws s3 cp s3://$S3_BUNDLE_NAME/elk/logstash-forwarder.key /usr/local/elk/conf/logstash-forwarder.key
 
