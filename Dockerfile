@@ -13,6 +13,12 @@ RUN unzip awscli-bundle.zip
 RUN ./awscli-bundle/install -i /usr/local/aws -b /usr/local/bin/aws
 RUN rm awscli-bundle.zip
 
+#download geo data
+RUN curl "http://geolite.maxmind.com/download/geoip/database/GeoLiteCity.dat.gz" -o "GeoLiteCity.dat.gz"
+RUN gzip -dv GeoLiteCity.dat.gz
+RUN mkdir /opt/logstash/GeoData/
+RUN mv GeoLiteCity.dat /opt/logstash/GeoData/GeoLiteCity.dat
+
 #add startup scirpts
 #using cmd to copy/update configuration files and keys from aws S3 
 #and then start the service
