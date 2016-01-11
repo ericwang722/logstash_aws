@@ -19,6 +19,9 @@ RUN gzip -dv GeoLiteCity.dat.gz
 RUN mkdir /opt/logstash/GeoData/
 RUN mv GeoLiteCity.dat /opt/logstash/GeoData/GeoLiteCity.dat
 
+#add aws elasticsearch service plugin 
+RUN /opt/logstash/bin/plugin install logstash-output-amazon_es
+
 #add startup scirpts
 #using cmd to copy/update configuration files and keys from aws S3 
 #and then start the service
